@@ -1,0 +1,18 @@
+<RCC>
+    <qresource prefix="/">
+        <file>an.jpg</file>
+        <file>yc.jpg</file>
+        <file>xyy.jpg</file>
+        <file>htl.jpg</file>
+        <file>ycc.jpg</file>
+        <file>blue.jpg</file>
+        <file>black.jpg</file>
+        <file>yellow.jpg</file>
+        <file>lb.jpeg</file>
+        <file>map.jpg</file>
+        <file>map11.jpg</file>
+        <file>map2.jpg</file>
+        <file>red.jpg</file>
+        <file>red2.jpg</file>
+    </qresource>
+</RCC>
