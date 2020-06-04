@@ -22,7 +22,8 @@ public:
     void addobject();
     void updating();
 
-    bool loadwave();
+    void attack();
+
     void removedenemy(enemy *enemy);
     void getHpDamage(int damage = 1);
 
@@ -34,8 +35,8 @@ private:
     int	  wave;
     int	  myblood;
     int	  mymoney;
-    bool gameEnded;
-    bool	gameWin;
+    bool lose;
+    bool	win;
     //将tower放到list里面
     QList<tower*>towers;
 
@@ -47,6 +48,7 @@ signals:
 
 
 public slots:
+    void start();
 };
 
 #endif // GAMEVIEW1_H

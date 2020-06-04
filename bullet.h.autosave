@@ -11,7 +11,7 @@
 class gameviews;
 class bullet : public objectx{
  Q_OBJECT
-     Q_PROPERTY(QPoint currentPos  READ getCurrentPos WRITE setCurrentPos)
+ Q_PROPERTY(QPoint currentPos  READ getCurrentPos WRITE setCurrentPos)
 public:
     bullet(QPoint start, QPoint targetp,QString file, int damage, enemy *target);
     void draw(QPainter *painter) ;

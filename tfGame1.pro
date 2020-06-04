@@ -38,10 +38,10 @@ HEADERS += \
         mainwindow.h \
     buttons.h \
     gameviews.h \
-    objectx.h \
-    enemy.h \
+    tower.h \
     bullet.h \
-    tower.h
+    enemy.h \
+    objectx.h
 
 FORMS += \
         mainwindow.ui

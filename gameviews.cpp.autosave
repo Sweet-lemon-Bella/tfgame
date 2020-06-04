@@ -66,6 +66,8 @@ void gameviews::paintEvent(QPaintEvent *){
          object->draw(&painter);
       foreach(enemy *enemy0,enemys)
           enemy0->draw(&painter);
+      foreach(bullet *bullet00,bullets)
+          bullet00->draw(&painter);
 
 
 }
@@ -94,6 +96,7 @@ void gameviews::addobject(){
     object->move();
     update();
 }
+
 void gameviews::updating(){
     update();
 }

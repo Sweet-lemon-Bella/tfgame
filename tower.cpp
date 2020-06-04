@@ -28,7 +28,7 @@ void tower::chooseEnemyForAttack(enemy *enemy1)
 
 void tower::shootWeapon()
 {
-    bullet *bullet1 = new bullet(po, chosenenemy->getpoint(),":/an.jpg", damage, chosenenemy);
+    bullet *bullet1 = new bullet(po, chosenenemy->getCurrentPos(),":/an.jpg", damage, chosenenemy);
     bullet1->move();
     logic->addbullet(bullet1);
 }
