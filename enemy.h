@@ -1,17 +1,37 @@
-#ifndef ENEMY_H
-#define ENEMY_H
+#ifndef MONSTER_H
+#define MONSTER_H
 
-#include <QObject>
+#include <QVector>
+#include <QString>
+#include<QPoint>
+#include<QList>
+#include"objectx.h"
 
-class enemy : public QObject
+class tower;
+class gameviews;
+
+//敌人类
+class enemy:public objectx
 {
-    Q_OBJECT
+
 public:
-    explicit enemy(QObject *parent = nullptr);
+    enemy(QPoint m, QString pic);  //构造
+    QPoint getpoint();
+    int getblood() const;  //获取生命值
+    void setblood(int b);    //设置生命值
+    void getdamage(int damage);
+    void getRemoved();
+    void getAttacked(tower *tower0);
+    void gotLostSight(tower *tower0);
 
-signals:
+private:
+   gameviews * logic;
+    QPoint n;                //怪物坐标
+    QString pic;             //怪物图片路径
+    int blood;                  //怪物生命值
+    int speed = 10;       //怪物移动速
+    QList<tower*>attacktowers;
 
-public slots:
 };
 
-#endif // ENEMY_H
+#endif // MONSTER_H

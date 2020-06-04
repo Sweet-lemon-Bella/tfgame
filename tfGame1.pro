@@ -31,15 +31,17 @@ SOURCES += \
     gameviews.cpp \
     tower.cpp \
     objectx.cpp \
-    enemy.cpp
+    enemy.cpp \
+    bullet.cpp
 
 HEADERS += \
         mainwindow.h \
     buttons.h \
     gameviews.h \
-    tower.h \
     objectx.h \
-    enemy.h
+    enemy.h \
+    bullet.h \
+    tower.h
 
 FORMS += \
         mainwindow.ui

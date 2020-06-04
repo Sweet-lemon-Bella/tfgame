@@ -1,5 +1,7 @@
 #include "buttons.h"
 #include<QPixmap>
+#include "gameviews.h"
+
 //自己建立的按钮类
 buttons::buttons(QString pi):QPushButton ()
 {

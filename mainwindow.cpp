@@ -8,7 +8,10 @@
 #include <QDebug>
 #include "buttons.h"
 #include "gameviews.h"
-
+class bullet;
+class tower;
+class enemy;
+class objectx;
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -25,7 +28,7 @@ MainWindow::MainWindow(QWidget *parent) :
     bu->move(500,400);
     connect(bu,&buttons::clicked,this,&QMainWindow::close);
 
-    buttons *bu1=new buttons(":/xyy.jpg");
+    buttons *bu1=new buttons(":/htl.jpg");
     bu1->setParent(this);
     bu1->move(900,400);
     connect(bu1,&buttons::clicked,this,&QMainWindow::close);
@@ -53,6 +56,6 @@ MainWindow::~MainWindow()
 //主界面的背景
 void MainWindow::paintEvent(QPaintEvent*){
    QPainter painter(this);
-   QPixmap pixmap(":/yc.jpg");
+   QPixmap pixmap(":/ycc.jpg");
    painter.drawPixmap(0,0,this->width(),this->height(),pixmap);
 }
