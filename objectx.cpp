@@ -16,7 +16,6 @@ void objectx::move(){
     QPropertyAnimation *animation=new QPropertyAnimation(this,"currentPos");
     animation->setDuration(2000);
     animation->setStartValue(startPos);
-
     animation->setEndValue(targetPos);
     animation->start();
 }

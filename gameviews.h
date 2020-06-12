@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QList>
 #include"buttons.h"
+#include"towerposition.h"
 class bullet;
 class tower;
 class enemy;
@@ -22,7 +23,8 @@ public:
     void addobject();
     void updating();
 
-    bool loadwave();
+    void attack();
+
     void removedenemy(enemy *enemy);
     void getHpDamage(int damage = 1);
 
@@ -34,19 +36,20 @@ private:
     int	  wave;
     int	  myblood;
     int	  mymoney;
-    bool gameEnded;
-    bool	gameWin;
-    //将tower放到list里面
+    bool lose;
+    bool	win;
     QList<tower*>towers;
-
+    QList<towerposition> towerpositions;
     QList<objectx*>object_list;
     QList<bullet*>bullets;
+    void gettowerposition();
 
 signals:
     void back();
 
 
 public slots:
+    void start();
 };
 
 #endif // GAMEVIEW1_H

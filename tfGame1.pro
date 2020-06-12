@@ -32,16 +32,18 @@ SOURCES += \
     tower.cpp \
     objectx.cpp \
     enemy.cpp \
-    bullet.cpp
+    bullet.cpp \
+    towerposition.cpp
 
 HEADERS += \
         mainwindow.h \
     buttons.h \
     gameviews.h \
-    objectx.h \
-    enemy.h \
+    tower.h \
     bullet.h \
-    tower.h
+    enemy.h \
+    objectx.h \
+    towerposition.h
 
 FORMS += \
         mainwindow.ui

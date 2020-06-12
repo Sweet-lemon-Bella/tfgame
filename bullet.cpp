@@ -27,3 +27,7 @@ void bullet::hit()
         target->getdamage(damage);
 
 }
+void bullet::draw(QPainter *painter)
+{
+    painter->drawPixmap(currentPos,pixmap);
+}

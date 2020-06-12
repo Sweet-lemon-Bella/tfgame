@@ -1,10 +1,11 @@
 #include "enemy.h"
 #include <QDebug>
 #include "gameviews.h"
+#include<QPainter>
 
 //怪物类函数实现
-enemy::enemy(QPoint m, QString pic): objectx(QPoint(0,0),QPoint(0,0),pic){
-    n=m;
+enemy::enemy(QPoint m,QPoint n, QString pic): objectx(m,n,pic){
+
     blood=100;
 }
 
@@ -12,10 +13,7 @@ int enemy::getblood() const{
     return blood;
 }//血量
 void enemy::setblood(int b){
-    b=blood;
-}
-QPoint enemy::getpoint(){
-    return n;
+    blood=b;
 }
 
 void enemy::getAttacked(tower *tower0)
@@ -40,4 +38,12 @@ void enemy::getdamage(int damage)
 
         logic->getmoney(200);
     }
+}
+void enemy::draw(QPainter *painter){
+
+    painter->drawPixmap(currentPos,pic);
+}
+void enemy::run()
+{
+    move();
 }
