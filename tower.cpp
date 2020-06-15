@@ -1,17 +1,20 @@
 #include "tower.h"
-#include"enemy.h"
-#include"bullet.h"
 #include"gameviews.h"
-tower::tower(QPoint po ,QString  pixfile) :QObject(),po(po),pix(pixfile),
-   attacking(false)
-       ,attackRange(70)
-       , damage(10)
-       , Rate(1000)
-       , chosenenemy(){
-    timer = new QTimer(this);
-    connect(timer, SIGNAL(timeout()), this, SLOT(shootWeapon()));
+const QSize tower::_size(50,50);
+tower::tower(QPoint pos, gameviews *control, const QPixmap &look):_range(70),_power(10),_rate(1000){
+    _look=look;
+    _position=pos;
+    _control=control;
 }
+void tower::draw(QPainter *painter) const{
+    painter->save();
+    painter->setPen(Qt::white);
+    painter->drawEllipse(_position, _range, _range);
+    painter->drawPixmap(_position,_look);
+    painter->restore();
 
+<<<<<<< HEAD
+=======
 
 void tower::attackEnemy()
 {
@@ -44,5 +47,5 @@ void tower::lostSightOfEnemy()
     if (chosenenemy)
        chosenenemy=0;
     timer->stop();
+>>>>>>> b77da3ef0e027934876167a9554754d160ec11fa
 }
-//不在攻击范围内的敌人
