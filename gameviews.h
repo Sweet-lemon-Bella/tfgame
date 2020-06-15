@@ -17,6 +17,15 @@ public:
     bool abletobuy() const;
     void paintEvent(QPaintEvent *event);
     void addobject();
+<<<<<<< HEAD
+=======
+    void updating();
+
+    void attack();
+
+    void removedenemy(enemy *enemy);
+    void getHpDamage(int damage = 1);
+>>>>>>> b77da3ef0e027934876167a9554754d160ec11fa
 
     bool loadwave() ;
     void attack();
@@ -27,7 +36,13 @@ private:
 
     int	  myblood;
     int	  mymoney;
+<<<<<<< HEAD
     int    _waves;
+=======
+    bool lose;
+    bool	win;
+    //将tower放到list里面
+>>>>>>> b77da3ef0e027934876167a9554754d160ec11fa
     QList<tower*>towers;
     QList<monster*>monsters;
     QList<towerposition> towerpositions;
@@ -41,7 +56,11 @@ signals:
     void back();
 
 public slots:
+<<<<<<< HEAD
     void updating();
+=======
+    void start();
+>>>>>>> b77da3ef0e027934876167a9554754d160ec11fa
 };
 
 #endif // GAMEVIEW1_H

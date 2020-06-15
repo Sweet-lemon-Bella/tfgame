@@ -41,10 +41,16 @@ HEADERS += \
     buttons.h \
     gameviews.h \
     tower.h \
+<<<<<<< HEAD
     towerposition.h \
     waypoint.h \
     monster.h \
     sound.h
+=======
+    bullet.h \
+    enemy.h \
+    objectx.h
+>>>>>>> b77da3ef0e027934876167a9554754d160ec11fa
 
 FORMS += \
         mainwindow.ui

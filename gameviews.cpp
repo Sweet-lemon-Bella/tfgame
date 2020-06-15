@@ -7,10 +7,18 @@
 #include"monster.h"
 gameviews::gameviews(QWidget *parent) : QMainWindow(parent)
 {
+<<<<<<< HEAD
 
     myblood=7;
     mymoney=100;
 
+=======
+    wave=3;
+    myblood=7;
+    mymoney=100;
+    lose=0;
+    win=0;
+>>>>>>> b77da3ef0e027934876167a9554754d160ec11fa
   //回到主界面的按钮
     this->setFixedSize(2000,1500);
     buttons *backbu=new buttons(":/an.jpg");
@@ -28,6 +36,7 @@ gameviews::gameviews(QWidget *parent) : QMainWindow(parent)
     timer->start(30);
 
 
+<<<<<<< HEAD
 }
 void gameviews::paintEvent(QPaintEvent *){
 
@@ -36,16 +45,35 @@ void gameviews::paintEvent(QPaintEvent *){
 
        QPixmap pixmap(":/map11.jpg");
        painter.drawPixmap(0,0,this->width(),this->height(),pixmap);//背景
+=======
+   buttons *set=new buttons(":/an.jpg");//按钮的图片
+   set->setParent(this);
+   set->move(800,800);//按钮的位置
+   set->setFixedSize(400,400);//按钮的大
+   connect(set,&buttons::clicked,this,&gameviews::addobject);
+
+    QTimer *timer=new QTimer(this);
+    connect(timer,&QTimer::timeout,this,&gameviews::updating);
+            timer->start(10);
+    QTimer::singleShot(300, this, SLOT(start()));
+>>>>>>> b77da3ef0e027934876167a9554754d160ec11fa
 
 
+<<<<<<< HEAD
        foreach(const towerposition &towerpos, towerpositions)
            towerpos.draw(&painter);
+=======
+void gameviews::paintEvent(QPaintEvent *){
+
+    QPainter painter(this);
+>>>>>>> b77da3ef0e027934876167a9554754d160ec11fa
 
       foreach(tower *tower0,towers)
           tower0->draw(&painter);
       foreach(waypoint *wayp,waypoints)
           wayp->draw(&painter);
 
+<<<<<<< HEAD
 }
 void gameviews::gettowerposition(){
 
@@ -97,16 +125,48 @@ void gameviews::mouseEvent(QMouseEvent *event)
             update();
             break;
         }
+=======
+       QPixmap pixmap(":/map11.jpg");
+       painter.drawPixmap(0,0,this->width(),this->height(),pixmap);//背景
+
+      foreach(tower *tower,towers)
+          tower->draw(&painter);
+
+      foreach(objectx *object,object_list)
+         object->draw(&painter);
+      foreach(enemy *enemy0,enemys)
+          enemy0->draw(&painter);
+
+
+}
+//建塔
+void gameviews::set_tower0(){
+    tower *tower2=new tower(QPoint(300,70),":/red.jpg");//第一个塔的建立
+    towers.push_back(tower2);
+    update();
+>>>>>>> b77da3ef0e027934876167a9554754d160ec11fa
 
         ++it;
     }
 }
+<<<<<<< HEAD
 void gameviews::updating()
 {
     foreach (monster *mon, monsters)
         mon->move();
     update();
 }
+=======
+void gameviews::set_tower1(){
+    tower *tower3=new tower(QPoint(500,600),":/red.jpg");//第一个塔的建立
+     towers.push_back(tower3);
+    update();
+}
+void gameviews::set_tower2(){
+    tower *tower4=new tower(QPoint(1200,500),":/red.jpg");//第一个塔的建立
+     towers.push_back(tower4);
+    update();
+>>>>>>> b77da3ef0e027934876167a9554754d160ec11fa
 
 bool gameviews::abletobuy() const
 {
@@ -156,6 +216,7 @@ void gameviews::addwaypoints()
     waypoints.push_back(wayPoint8);
     wayPoint8->setNextWayPoint(wayPoint7);
 
+<<<<<<< HEAD
 
 }
 void gameviews::getdamage(int damage)
@@ -196,3 +257,39 @@ bool gameviews::loadwave()
     return true;
 }
 
+=======
+void gameviews::addobject(){
+    objectx *object =new objectx(QPoint(0,200),QPoint(2000,200),":/xyy.jpg");
+    object_list.push_back(object);
+    object->move();
+    update();
+}
+void gameviews::updating(){
+    update();
+}
+
+void gameviews::addbullet(bullet *bullet2)
+{
+    Q_ASSERT(bullet2);
+
+    bullets.push_back(bullet2);
+}
+
+void gameviews::getmoney(int money)
+{
+    mymoney+=money;
+    update();
+}
+
+void gameviews::start()
+{
+   // for (int i = 0; i < 10; ++i)
+   //  {
+         enemy *enemy1 = new enemy(QPoint(0,0),QPoint(2000,200),":/xyy.png");
+         enemys.push_back(enemy1);
+         QTimer::singleShot(40, enemy1, SLOT(run()));
+   //  }
+}
+
+
+>>>>>>> b77da3ef0e027934876167a9554754d160ec11fa
