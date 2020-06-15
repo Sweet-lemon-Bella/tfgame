@@ -8,9 +8,10 @@
 class towerposition
 {
 public:
-    towerposition(QPoint position,const QPixmap &look=QPixmap(":/xiong.png"));
-    void setavailable(bool _available=0);
+    towerposition(QPoint position,const QPixmap &look=QPixmap(":/po.png"));
+    void setable(bool _available=0);
     bool available() const;
+    const QPoint position() const;
     bool containpoint(const QPoint &position)const;
     void draw(QPainter *painter) const;
 private:

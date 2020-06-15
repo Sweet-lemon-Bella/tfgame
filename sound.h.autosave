@@ -1,0 +1,24 @@
+#ifndef SOUND_H
+#define SOUND_H
+
+#include <QObject>
+class QMediaPlayer;
+enum soundtype{
+    
+};
+
+class sound : public QObject
+{
+    Q_OBJECT
+public:
+    explicit sound(QObject *parent = nullptr);
+    void start();
+    void playsound();
+private:
+    QMediaPlayer *bgm;
+signals:
+
+public slots:
+};
+
+#endif // SOUND_H

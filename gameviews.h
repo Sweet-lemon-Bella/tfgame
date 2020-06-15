@@ -5,51 +5,43 @@
 #include <QList>
 #include"buttons.h"
 #include"towerposition.h"
-class bullet;
-class tower;
-class enemy;
-class objectx;
+#include"waypoint.h"
+#include"monster.h"
+
 
 class gameviews : public QMainWindow
 {
     Q_OBJECT
 public:
     explicit gameviews(QWidget *parent = nullptr);
-    void set_tower0();//建塔的槽函数
-    void set_tower1();
-    void set_tower2();
-
+    bool abletobuy() const;
     void paintEvent(QPaintEvent *event);
     void addobject();
-    void updating();
 
+    bool loadwave() ;
     void attack();
-
-    void removedenemy(enemy *enemy);
-    void getHpDamage(int damage = 1);
-
-    void removedbullet(bullet *bullet);
-    void addbullet(bullet *bullet);
-    void getmoney(int money);
-     QList<enemy*>enemys;
+    void mouseEvent(QMouseEvent *event);
+    void getdamage(int damage);
+     void remove(monster *mon);
 private:
-    int	  wave;
+
     int	  myblood;
     int	  mymoney;
-    bool lose;
-    bool	win;
+    int    _waves;
     QList<tower*>towers;
+    QList<monster*>monsters;
     QList<towerposition> towerpositions;
-    QList<objectx*>object_list;
-    QList<bullet*>bullets;
+    bool   _win;
+   // QList<bullet*>bullets;
     void gettowerposition();
+    QList<waypoint *> waypoints;
+    void addwaypoints();
 
 signals:
     void back();
 
-
 public slots:
-    void start();
+    void updating();
 };
 
 #endif // GAMEVIEW1_H

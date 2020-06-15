@@ -1,25 +1,21 @@
 #ifndef WAYPOINT_H
 #define WAYPOINT_H
 
-#include <QPoint>
-
-class QPainter;
-
-// 敌人移动的航线
-class WayPoint
+#include<QPoint>
+#include<QPainter>
+class waypoint
 {
 public:
-    WayPoint(QPoint pos);
-
-    void setNextWayPoint(WayPoint *nextPoint);
-    WayPoint* nextWayPoint() const;
-    const QPoint pos() const;
-
-    void draw(QPainter *painter) const;
+    waypoint(QPoint pos);
+    void setNextWayPoint(waypoint *nextPoint);
+    waypoint* nextWayPoint() const;
+    const QPoint position() const;
+    void  draw(QPainter *painter) const;
 
 private:
-    const QPoint		m_pos;
-    WayPoint *			m_nextWayPoint;
+
+    const QPoint _position;
+    waypoint *_nextwaypoint;
 };
 
 #endif // WAYPOINT_H

@@ -3,40 +3,28 @@
 #include <QPoint>
 #include <QPixmap>
 #include<QPainter>
-#include "objectx.h"
-#include"enemy.h"
+
 #include<QTimer>
 
 class gameviews;
 class tower :public  QObject{
  Q_OBJECT
 public:
-    tower(QPoint po ,QString  pixfile);
-    void draw(QPainter *painter);
-    void checkEnemyInRange();
-    void targetKilled();
-    void attackEnemy();
-    void chooseEnemyForAttack(enemy *enemy1);
-    void removeBullet();
-    void damageEnemy();
-    void lostSightOfEnemy();
-     bool haveMonsterCode(int code);
 
+    tower(QPoint pos, gameviews *control, const QPixmap &look=QPixmap("/:an.jpg"));
+    void draw(QPainter *painter) const;
 private:
-    gameviews * logic;
-    QPoint	po;
-    QPixmap	pix;
-    bool	attacking;
-    int		attackRange;
-    int		damage;
-    int		Rate;
-    enemy *	chosenenemy;
-    QTimer *timer;
-
+    QPoint _position;
+    int _range;
+    int _power;
+    int _rate;
+    QPixmap _look;
+     static const QSize _size;
+     gameviews* _control;
 signals:
 
 private slots:
-    void shootWeapon();
+
 
 };
 
